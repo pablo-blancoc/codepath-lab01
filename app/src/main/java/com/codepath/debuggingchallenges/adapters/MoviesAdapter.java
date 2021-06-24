@@ -20,6 +20,7 @@ import java.util.List;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder> {
 
     private List<Movie> movies;
+    Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         // only needed because we need to set the background color
@@ -40,27 +41,26 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         }
     }
 
-    public MoviesAdapter(List<Movie> movies) {
+    public MoviesAdapter(List<Movie> movies, Context context) {
+        this.context = context;
         this.movies = movies;
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.movies.size();
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
         View movieView = inflater.inflate(R.layout.item_movie, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(movieView);
-        return viewHolder;
+        return new ViewHolder(movieView);
     }
 
     @Override

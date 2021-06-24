@@ -11,6 +11,7 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
 
     private int oldColor = Color.BLUE;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
